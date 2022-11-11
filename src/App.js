@@ -1,10 +1,11 @@
 import React from 'react';
-import Signin from './components/Signin';
-import Signup from './components/Signup';
-import Account from './components/Account';
+import Signin from './views/Signin';
+import Signup from './views/Signup';
+import Account from './views/Account';
 import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import { Main } from './views/Main';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       </h1>
       <AuthContextProvider>
         <Routes>
-          <Route path='/' element={<Signin />} />
+          <Route path='/' element={<Main />} />
+          <Route path='/signin' element={<Signin />} />
           <Route path='/signup' element={<Signup />} />
           <Route
             path='/account'
