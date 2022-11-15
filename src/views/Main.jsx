@@ -8,7 +8,9 @@ export const Main = () => {
     <Header></Header>
     <div className='cardHolder'>
         <div className='card'>
-            <h1>MAIN SCREEN</h1>
+            <h1>MAIN SCREEN</h1><br/><br/><br/><br/>
+            <a href='/signin'>LOGIN</a><br/><br/>
+            <a href='/signup'>SIGNUP</a>
         </div>
     </div>
         

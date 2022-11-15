@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import {Header} from '../components/Header'
+import Contacts from '../components/Contacts'
+
 
 const Account = () => {
   const { user, logout } = UserAuth();
@@ -28,6 +30,10 @@ const Account = () => {
       <button onClick={handleLogout} className='border px-6 py-2 my-4'>
         Logout
       </button>
+    <div>
+
+    </div>
+      <Contacts props={user.uid}/>
     </div>
    </>
   );
