@@ -1,0 +1,215 @@
+:root{
+  --leftSide: 6vw;
+  --lefSidePls: 8.5vw;
+  --topMargin: 5vh;
+}
+/*GLOBALS*/
+button{
+  background-color: #2196F3;
+  border: black solid 1px; 
+}
+button:hover{
+  background-color: gray;
+}
+.innerBody{
+  padding-top: var(--topMargin);
+  padding-left: var(--leftSide);
+}
+*{
+  padding:0;
+  margin:0;
+}
+button{
+  padding:5px;
+}
+li{
+  list-style-type: none;
+}
+table{
+  border-spacing:0;
+}
+
+/*REGULARS*/
+body {
+    background-color: white;
+    padding-top: 8vh;
+    margin:0;
+}
+.cardHolder{
+  width:100vw;
+  min-height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.card{
+  margin: 5vw;
+  background: lightgray;
+  padding: 20px;
+  width: 80%;
+  max-width: 1200px;
+  text-align: center;
+  font-family: Arial;
+}
+.App{
+    background: lightblue;
+    padding: 0;
+    text-align: center;
+}
+thead{
+  font-weight: bolder;
+}
+th, td {
+  border: 1px solid black;
+  padding:15px;
+}
+
+.TableCont {
+    /*display: grid;
+    grid: 100px 100px 100px / auto auto auto;*/
+    background-color: #2196F3;
+    padding: 10px;
+    width: 1fr;
+}
+
+.Input {
+  display: flex;
+  text-align: middle;
+  justify-content: center;
+  background-color: #2196F3;
+  width: 1fr;
+  padding:0;
+}
+
+.Input > div{
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.Header {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: -webkit- sticky;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: var(--leftSide);
+    height: var(--topMargin);
+  }
+  
+.Header > li {
+    float: left;
+  }
+  
+.Header > li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+.mainHeader {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  box-shadow: #000 0px 0px 5px 1px; 
+  background-color: white;
+  position: -webkit- sticky;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: var(--topMargin);
+}
+
+.mainHeader li {
+  display: inline;
+  background-color: #04AA6D;
+  padding: 10px;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  
+}
+.mainHeader li a{
+  text-decoration: none;
+  color: black;
+}
+
+.mainHeader li:hover {
+  background-color: black;
+}
+.mainHeader a:hover {
+  background-color: black;
+  color:white;
+}
+
+.SideBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: var(--leftSide);
+    background-color: lightgrey;
+    position: -webkit- sticky;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    top:0;
+    left:0;
+  }
+  
+.SideBar > li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+.SideBar > li a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+.SideBar > li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+.SideBar > img {
+    display:block;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
