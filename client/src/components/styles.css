@@ -1,16 +1,9 @@
 :root{
   --leftSide: 6vw;
   --lefSidePls: 8.5vw;
-  --topMargin: 5vh;
+  --topMargin: 25px;
 }
 /*GLOBALS*/
-button{
-  background-color: #2196F3;
-  border: black solid 1px; 
-}
-button:hover{
-  background-color: gray;
-}
 .innerBody{
   padding-top: var(--topMargin);
   padding-left: var(--leftSide);
@@ -82,7 +75,27 @@ table{
   align-items: center;
   justify-content: end;
 }
-
+form{
+  display: inline;
+  align-items: center;
+  justify-content: center;
+}
+form div{
+  margin: 10px;
+  padding: 5px;
+}
+form input{
+  border-radius: 5px;
+  padding: 10px;
+  width: 80%;
+}
+.linkPlain{
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+  background-color: transparent;
+  color: blue;
+}
 /*REGULARS*/
 body {
     background-color: white;
@@ -104,6 +117,14 @@ body {
   max-width: 1200px;
   text-align: center;
   font-family: Arial;
+}
+.card2{
+  margin: 5vw;
+  background: lightgray;
+  padding: 20px;
+  width: 80%;
+  font-family: Arial;
+  align-items: left;
 }
 .App{
   background: lightblue;
