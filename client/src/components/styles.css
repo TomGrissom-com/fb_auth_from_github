@@ -19,14 +19,68 @@ button:hover{
   padding:0;
   margin:0;
 }
-button{
-  padding:5px;
+a{
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: aquamarine;
+  text-decoration: none;
+  color: black;
 }
+a:hover{
+  color: white;
+  background-color: #000;
+}
+
+button{
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: aquamarine;
+  text-decoration: none;
+  color: black;
+  border: none;
+}
+
+button:hover{
+  color: white;
+  background-color: #000;
+  cursor: pointer;
+}
+
 li{
   list-style-type: none;
 }
 table{
   border-spacing:0;
+}
+.row{
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.row-left{
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.row-center{
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row-right{
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 /*REGULARS*/
@@ -36,25 +90,25 @@ body {
     margin:0;
 }
 .cardHolder{
-  width:100vw;
-  min-height: 100vh;
+  width:100%;
   display: flex;
   align-content: center;
   justify-content: center;
 }
+
 .card{
   margin: 5vw;
   background: lightgray;
   padding: 20px;
-  width: 80%;
+  width: 20%;
   max-width: 1200px;
   text-align: center;
   font-family: Arial;
 }
 .App{
-    background: lightblue;
-    padding: 0;
-    text-align: center;
+  background: lightblue;
+  padding: 0;
+  text-align: center;
 }
 thead{
   font-weight: bolder;
@@ -65,11 +119,11 @@ th, td {
 }
 
 .TableCont {
-    /*display: grid;
-    grid: 100px 100px 100px / auto auto auto;*/
-    background-color: #2196F3;
-    padding: 10px;
-    width: 1fr;
+  /*display: grid;
+  grid: 100px 100px 100px / auto auto auto;*/
+  background-color: #2196F3;
+  padding: 10px;
+  width: 1fr;
 }
 
 .Input {
@@ -86,15 +140,46 @@ th, td {
   border-radius: 20px;
 }
 
+.headerContainer{
+  width: 100vw;
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  box-shadow: #000 0px 0px 5px 1px; 
+  background-color: white;
+  position: -webkit- sticky;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: center;
+
+}
+.headerContainer div.column {
+  padding-left: 5%;
+  padding-right: 3%;
+}
+.headerContainer div.links a{
+ 
+
+}
+.headerContainer div.logo img{
+  padding: 0;
+  width: 5%;
+}
+
+/*
 .Header {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: -webkit- sticky;
-    position: fixed;
-    width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit- sticky;
+  position: fixed;
+  width: 100%;
     top: 0;
     left: var(--leftSide);
     height: var(--topMargin);
@@ -145,7 +230,7 @@ th, td {
   background-color: black;
   color:white;
 }
-
+*/
 .SideBar {
     list-style-type: none;
     margin: 0;
@@ -200,16 +285,4 @@ th, td {
   padding: 10px;
   background-color: #fff;
   border: 1px solid #ddd;
-}
-
-.form-inline button {
-  padding: 10px 20px;
-  background-color: dodgerblue;
-  border: 1px solid #ddd;
-  color: white;
-  cursor: pointer;
-}
-
-.form-inline button:hover {
-  background-color: royalblue;
 }

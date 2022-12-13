@@ -4,7 +4,6 @@ import Signup from './views/Signup';
 import Account from './views/Account';
 import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import { Main } from './views/Main';
 import ContactView from './views/ContactView'
