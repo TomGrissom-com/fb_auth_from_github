@@ -31,7 +31,6 @@ export default function Notes( contactId ) {
         {notes.map((doc, index) =>{
                 return(
                         <tr key={doc.id}>
-                            <td key={"id"+doc.id}>{doc.id}</td>
                             <td key={"note"+doc.id}>{doc.note}</td>
                             <td key={"delete"+doc.id}>
                             <button onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
@@ -42,7 +41,6 @@ export default function Notes( contactId ) {
                 </tbody>
             </table>
         </div>
-
     </>
   )
 }

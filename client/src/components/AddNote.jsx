@@ -20,7 +20,7 @@ export default function AddNote( contactId ) {
     <>
         <div>
             <form>
-                <label>Add notes</label>
+                <label>Add notes</label><br/>
                 <textarea 
                     type="text" 
                     placeholder="Write A Note"
