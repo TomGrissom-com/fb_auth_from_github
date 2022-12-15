@@ -6,7 +6,11 @@ export default function ContactView() {
   return (
   <>
     <Header></Header>
-    <Contact></Contact>
+    <div className='cardHolder'>
+      <div className='card2'>
+        <Contact></Contact>
+      </div>
+    </div>
   </>
   )
 }

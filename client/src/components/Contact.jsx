@@ -51,8 +51,10 @@ export default function Contact(id) {
           </tbody>
         </table>
       </div>
-      <AddNote data={contactId}></AddNote>
-      <Notes data={contactId}></Notes>
+      <div>
+        <AddNote data={contactId}></AddNote>
+        <Notes data={contactId}></Notes>
+      </div>
     </>
   )
 }

@@ -98,6 +98,7 @@ form{
   display: inline;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 form div{
   margin: 10px;
@@ -115,6 +116,13 @@ form input{
   background-color: transparent;
   color: blue;
 }
+textarea{
+  margin: 10px;
+  padding: 5px;
+  width: 90%;
+  height: 100px;
+}
+
 /*REGULARS*/
 body {
     background-color: white;
