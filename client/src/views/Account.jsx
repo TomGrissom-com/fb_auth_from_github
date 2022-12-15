@@ -11,24 +11,20 @@ const Account = () => {
 
   return (<>
     <Header></Header>
-    <div className='cardHolder'>
-      <div className='card2'>
-        <div>
+        <div className='subHeader'>
           <h1>Account</h1>
           <p>account information</p>
           <p>User Email: {user && user.email}</p>
           <p>Your Account ID is {user && user.uid}</p>
-        <div>
-
-        <div>
-          <AddContact></AddContact>
         </div>
-
+        <div className='container_flex'>
+            <div className='grid'>
+              <div className='add_contact'>
+                <AddContact></AddContact>
+              </div>
+            </div>
+            <Contacts props={user.uid}/>
         </div>
-          <Contacts props={user.uid}/> 
-        </div>
-      </div>
-    </div>
    </>
   );
 };
