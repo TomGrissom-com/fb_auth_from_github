@@ -26,8 +26,8 @@ const Signin = () => {
   return (
   <>
     <Header></Header>
-    <div className='cardHolder'>
-      <div className='card'>
+    <div className='container center_text'>
+      <div className='child card'>
         <div>
           <div>
             <h1>Sign in to your account</h1>
@@ -40,12 +40,12 @@ const Signin = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <label >Email Address</label><br/>
-              <input onChange={(e) => setEmail(e.target.value)} className='border p-3' type='email' />
+              <label className='p5'>Email Address</label><br/>
+              <input onChange={(e) => setEmail(e.target.value)} className='p8 border_rounded' type='email' />
             </div>
             <div >
-              <label >Password</label><br/>
-              <input onChange={(e) => setPassword(e.target.value)} className='border p-3' type='password' />
+              <label className='p5'>Password</label><br/>
+              <input onChange={(e) => setPassword(e.target.value)} className='p8 border_rounded' type='password' />
             </div>
             <button>
               Sign In

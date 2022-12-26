@@ -1,34 +1,59 @@
 import React from 'react'
 import btlogo from '../images/btlogo.png'
+import bttopper from '../images/bt_topper.png'
+import menubtn from '../images/Menu Button BT.png'
+import menubtnX from '../images/Menu Button BT X.png'
 import { UserAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export function Header() {
-    const {user, logout} = UserAuth()
+    const {user, logout} = UserAuth();
     const navigate = useNavigate();
+    const [menu, setMenu] = useState();
 
+    useEffect(()=>{
+      setMenu();
+     },[])
+
+        
     const handleLogout = async () => {
-        try {
-          await logout();
-          navigate('/');
-          console.log('You are logged out')
-        } catch (e) {
-          console.log(e.message);
-        }
-      };
+      try {
+        await logout();
+        navigate('/');
+        console.log('You are logged out')
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+    
+    const ShowMenu = () => {
+      if(!menu){
+        setMenu('true')
+      }else{
+        setMenu()}
+      console.log(menu)
+    }
 
   return (
-    <div className='headerContainer'>
-        <div className='logo'>
-            <img src={btlogo}/>
-        </div>
-        <div className='links column'>
-            {!user ? <a href='/'>Main Screen</a> : ""}
-            {!user ? <a href='/signin'>Sign In</a> : ""}
-            {!user ? <a href='/signup'>Sign up</a> : ""}
-            {!user ? "" : <a href='/account'>Dashboard</a>}
-            {!user ? "" : <button onClick={handleLogout}>Logout</button>}
-       </div>
+    <>
+    <div id='mobile_ui'>
+      <a onClick={ShowMenu} className='logo menubtn'><img id='menubtn' src={menubtn}/></a>
+        <nav style={!menu ?  {right:'-100%'} : {right:'0'}} >
+            <div className='container'>
+                <a onClick={ShowMenu} className='logo' style={{float: 'right'}}><img id='menubtn' src={menubtnX}/></a>
+                <a onClick={ShowMenu} className='logo'><img id='logo' src={bttopper}/></a>
+            </div>
+            <div className=''>
+                {!user ? <a
+                href='/'>Main Screen</a> : ""}
+                {!user ? <a href='/signin'>Sign In</a> : ""}
+                {!user ? <a href='/signup'>Sign up</a> : ""}
+                {!user ? "" : <a href='/account'>Dashboard</a>}
+                {!user ? "" : <a onClick={handleLogout}>Logout</a>}
+          </div>
+        </nav>
     </div>
+    </>
   )
 }

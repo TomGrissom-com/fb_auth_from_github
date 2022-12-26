@@ -7,22 +7,22 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordV, setPasswordV] = useState('');
-  const [error, setError] = useState('')
+  const [PWerror, setPWError] = useState('')
   const { createUser } = UserAuth();
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setPWError('');
     
     if(password != passwordV){
-
+      setPWError("Passwords Must Match")
     }else{
         try {
           await createUser(email, password);
           navigate('/account')
         } catch (e) {
-          setError(e.message);
+          setPWError(e.message);
           console.log(e.message);
         }
       };
@@ -32,39 +32,40 @@ const Signup = () => {
   return (
   <>
   <Header></Header>
-    <div className='cardHolder'>
-      <div className='card'>
+    <div className='container center_text'>
+      <div className='child card'>
         <div>
           <div>
             <h1>Sign up for a free account</h1>
             <p>
               Already have an account yet?{' '}
-              <Link to='/' className='linkPlain'>
+              <Link to='/signin' className='linkPlain'>
                 Sign in.
               </Link>
             </p>
           </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <label>Email Address</label>
-              <input
+              <label className='p5'>Email Address</label><br/>
+              <input className='p8 border_rounded'
                 onChange={(e) => setEmail(e.target.value)}
                 type='email'
                 />
             </div>
             <div>
-              <label>Password</label>
-              <input
+              <label className='p5'>Password</label><br/>
+              <input className='p8 border_rounded'
                 onChange={(e) => setPassword(e.target.value)}
                 type='password'
                 />
             </div>
             <div>
-              <label>Verify Password</label>
-              <input
+              <label className='p5' style={!PWerror ? {} : {color: "red"}}>Verify Password</label><br/>
+              <input className='p8 border_rounded'
                 onChange={(e) => setPasswordV(e.target.value)}
-                type='passwordV'
+                type='password'
                 />
+            {!PWerror ? '':<p style={{color: "red"}}>{PWerror}</p>}
             </div>
             <button>
               Sign Up

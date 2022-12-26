@@ -59,9 +59,9 @@
                                         <td key={doc.phone_number01}>{doc.phone_number01}</td>
                                         <td key={doc.phone_number02}>{doc.phone_number02}</td>
                                         <td>
-                                        <button onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
+                                        <button className='table_button' onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
                                         </td>
-                                        <td><a href={"account/contact?id="+doc.id}>View</a></td>
+                                        <td><a className='table_button' href={"account/contact?id="+doc.id}>View</a></td>
                                     </tr>
                                 </tbody>
                             )

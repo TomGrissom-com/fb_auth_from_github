@@ -1,0 +1,163 @@
+/* GLOBALS */
+.root{
+  padding-top: 75px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+body{
+  width: 100%;
+}
+#logo{
+  max-width: 100%;
+}
+#btBanner{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+a{
+  padding: 16px;
+  margin: 5px;
+  background-color: rgb(124,89,176);
+  border-radius: 5px;
+  border: 1px solid black;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+a:hover {
+  background-color: rgb(68,156,178);
+  color: black;
+}
+button{
+  padding: 5px;
+  margin: 5px;
+  background-color: rgb(124,89,176);
+  border-radius: 5px;
+  border: 1px solid black;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+button:hover{
+  background-color: rgb(68,156,178);
+}
+
+/*=======================*/
+/*MENU CONTROL*/
+/* Style the side navigation */
+#menubtn{
+  display: grid;
+  place-items: center;
+  height: 50px;
+}
+.menubtn{
+  position: fixed;
+  right: 16px;
+  top: 10px;
+  margin: 0;
+}
+
+nav {
+  position: fixed;
+  height: 100%;
+  width: 50%;
+  top: -25px;
+  overflow: hidden;
+  background: black;
+  transition: 0.5s ease;
+  padding: 40px 30px;
+}
+nav a {
+  text-decoration: none;
+  display: block;
+}
+/*=======================*/
+
+/*=======================*/
+/*LOGO*/
+.logo{
+  background-color: unset;
+  border: unset;
+  border-radius: unset;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+.logo:hover{
+  background-color: unset;
+}
+/*=======================*/
+
+/*=======================*/
+/*PADDINGS*/
+.p5{
+  padding: 5px;
+}
+.p8{
+  padding: 8px;
+}
+.p10{
+  padding: 10px;
+}
+.p16{
+  padding: 16px;
+}
+
+/*=======================*/
+/*Design Features*/
+.card{
+  background-color: lightgray;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+.container{
+  width: 100%;
+}
+.center_text{
+  text-align: center;
+}
+.block{
+  display: block;
+}
+.border_rounded{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.child{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.linkPlain{
+  margin: 0;
+  padding: 5px;
+  color: white;
+}
+/*=======================*/
+
+
+@media only screen and (max-width: 810px) {
+  /*GLOBALS*/
+  html{margin: 0;}
+  body{margin: 0;}
+  .root{
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .child{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #btBanner{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
+  }
