@@ -5,7 +5,7 @@ import bttopper from '../images/bt_topper.png'
 export const Main = () => {
   return (
     <>
-        <Header></Header>
+        <Header data={"Main Screen"}></Header>
         <div className='container'>
           <div className='child'>
               <img id='btBanner' src={bttopper}/>

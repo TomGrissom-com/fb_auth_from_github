@@ -3,6 +3,8 @@
     import { collection, query, where } from 'firebase/firestore';
     import { db } from '../Firebase/firebase'
     import { UserAuth } from '../context/AuthContext';
+    import moment from 'moment';
+
 
     const contactsCollection = collection(db,'contacts')
     
@@ -36,37 +38,40 @@
                     <div>
                         <h2>Contacts</h2>
                     </div>
-                    <table>
-                                <thead>
-                                    <tr key='table'>
-                                        <td key='created'>Created</td>
-                                        <td key='first_name'>First Name</td>
-                                        <td key='last_name'>last Name</td>
-                                        <td key='email'>email</td>
-                                        <td key='phone_number01'>Phone Number01</td>
-                                        <td key='phone_number02'>Phone Number02</td>
-                                        <td key='delButton'></td>
-                                    </tr>
-                                </thead>
-                        {list.map((doc, index) =>{
-                            return(
-                                <tbody>
-                                    <tr key={doc.id}>
-                                        <td key={new Date(doc.timestamp.seconds * 1000).toLocaleDateString("en-US")}>{new Date(doc.timestamp.seconds * 1000).toLocaleDateString("en-US")}</td>
-                                        <td key={doc.first_name}>{doc.first_name}</td>
-                                        <td key={doc.last_name}>{doc.last_name}</td>
-                                        <td key={doc.email}>{doc.email}</td>
-                                        <td key={doc.phone_number01}>{doc.phone_number01}</td>
-                                        <td key={doc.phone_number02}>{doc.phone_number02}</td>
-                                        <td>
-                                        <button className='table_button' onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
-                                        </td>
-                                        <td><a className='table_button' href={"account/contact?id="+doc.id}>View</a></td>
-                                    </tr>
-                                </tbody>
-                            )
-                        })}
-                    </table>
+                    <div className='tableContainer'>
+                        <table>
+                                    <thead>
+                                        <tr key='table'>
+                                            <td key='created'>CREATED</td>
+                                            <td key='first_name'>FIRST NAME</td>
+                                            <td key='last_name'>LAST NAME</td>
+                                            <td key='email'>EMAIL</td>
+                                            <td key='phone_number01'>MAIN PHONE</td>
+                                            <td key='phone_number02'>SECONDARY PHONE</td>
+                                            <td key='delButton'>DELETE</td>
+                                            <td key='viewButton'>VIEW</td>
+                                        </tr>
+                                    </thead>
+                            {list.map((doc, index) =>{
+                                return(
+                                    <tbody>
+                                        <tr id={index} key={doc.id}>
+                                            <td key={new Date(doc.timestamp.seconds * 1000).toLocaleDateString("en-US")}>{moment(new Date(doc.timestamp.seconds * 1000)).format("MM/DD/yy  h:mm a")}</td>
+                                            <td key={doc.first_name}>{doc.first_name}</td>
+                                            <td key={doc.last_name}>{doc.last_name}</td>
+                                            <td key={doc.email}>{doc.email}</td>
+                                            <td key={doc.phone_number01}>{doc.phone_number01}</td>
+                                            <td key={doc.phone_number02}>{doc.phone_number02}</td>
+                                            <td>
+                                            <button className='table_button' onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
+                                            </td>
+                                            <td><a className='table_button' href={"account/contact?id="+doc.id}>View</a></td>
+                                        </tr>
+                                    </tbody>
+                                )
+                            })}
+                        </table>
+                    </div>
                 </div>
             </div>
     </>

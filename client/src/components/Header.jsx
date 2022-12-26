@@ -7,7 +7,7 @@ import { UserAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-export function Header() {
+export function Header(props) {
     const {user, logout} = UserAuth();
     const navigate = useNavigate();
     const [menu, setMenu] = useState();
@@ -38,7 +38,11 @@ export function Header() {
   return (
     <>
     <div id='mobile_ui'>
-      <a onClick={ShowMenu} className='logo menubtn'><img id='menubtn' src={menubtn}/></a>
+      <div className='top'>
+        <a href='/account' className='reset'><img className='headerLogo' src={bttopper}></img></a>
+        <h1 className='pageName'>{props.data}</h1>
+        <a onClick={ShowMenu} className='logo menubtn'><img id='menubtn' src={menubtn}/></a>
+      </div>
         <nav style={!menu ?  {right:'-100%'} : {right:'0'}} >
             <div className='container'>
                 <a onClick={ShowMenu} className='logo' style={{float: 'right'}}><img id='menubtn' src={menubtnX}/></a>

@@ -25,7 +25,7 @@ const Signin = () => {
 
   return (
   <>
-    <Header></Header>
+    <Header data={"Sign In"}></Header>
     <div className='container center_text'>
       <div className='child card'>
         <div>

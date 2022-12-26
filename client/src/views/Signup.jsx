@@ -31,7 +31,7 @@ const Signup = () => {
 
   return (
   <>
-  <Header></Header>
+  <Header data={"Register"}></Header>
     <div className='container center_text'>
       <div className='child card'>
         <div>

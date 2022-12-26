@@ -10,12 +10,10 @@ const Account = () => {
 
 
   return (<>
-    <Header></Header>
-        <div className='subHeader'>
-          <h1>Account</h1>
+    <Header data={"Account"}></Header>
+        <div>
           <p>account information</p>
           <p>User Email: {user && user.email}</p>
-          <p>Your Account ID is {user && user.uid}</p>
         </div>
         <div className='container_flex'>
             <div className='grid'>

@@ -5,7 +5,7 @@ import Contact from '../components/Contact'
 export default function ContactView() {        
   return (
   <>
-    <Header></Header>
+    <Header data={"Contact"}></Header>
     <div className='cardHolder'>
       <div className='card2'>
         <Contact></Contact>

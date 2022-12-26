@@ -1,9 +1,12 @@
 /* GLOBALS */
 .root{
-  padding-top: 75px;
+  padding-top: 100px;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+}
+html{
+  width: 100vw;
 }
 body{
   width: 100%;
@@ -43,6 +46,28 @@ button{
 button:hover{
   background-color: rgb(68,156,178);
 }
+/*=======================*/
+/*Table Control*/
+.tableContainer{
+  overflow-x:auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+thead{
+  font-weight: bold;
+  background-color: rgb(217, 217, 217);
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+/*=======================*/
 
 /*=======================*/
 /*MENU CONTROL*/
@@ -53,12 +78,28 @@ button:hover{
   height: 50px;
 }
 .menubtn{
-  position: fixed;
-  right: 16px;
-  top: 10px;
   margin: 0;
+  grid-area: 1 / 4;
 }
-
+.top{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  justify-items: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 75px;
+  border: 1px solid black;
+}
+.pageName{
+  grid-area: 1 / 2 / 1 / span 2;
+}
+.headerLogo{
+  grid-area: 1/1;
+  height: 60px;
+}
 nav {
   position: fixed;
   height: 100%;
@@ -113,6 +154,7 @@ nav a {
   border-radius: 5px;
   padding-bottom: 100px;
   padding-top: 100px;
+  box-shadow: 5px 5px 10px;
 }
 .container{
   width: 100%;
@@ -139,6 +181,13 @@ nav a {
 }
 /*=======================*/
 
+.reset{
+  all: unset;
+}
+.reset:hover{
+  all:unset;
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 810px) {
   /*GLOBALS*/
