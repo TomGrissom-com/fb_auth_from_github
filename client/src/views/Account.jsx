@@ -11,18 +11,18 @@ const Account = () => {
 
   return (<>
     <Header data={"Account"}></Header>
-        <div>
-          <p>account information</p>
+    <div className='gridSimple'>
+        <div className='grid_userData card_plain p8'>
+          <h3>Account Information</h3>
           <p>User Email: {user && user.email}</p>
         </div>
-        <div className='container_flex'>
-            <div className='grid'>
-              <div className='add_contact'>
-                <AddContact></AddContact>
-              </div>
-            </div>
+        <div className='grid_addContacts'>
+          <AddContact></AddContact>
+        </div>
+        <div className='grid_contacts'>
             <Contacts props={user.uid}/>
         </div>
+    </div>
    </>
   );
 };

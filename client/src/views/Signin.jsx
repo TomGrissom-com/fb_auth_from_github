@@ -27,7 +27,7 @@ const Signin = () => {
   <>
     <Header data={"Sign In"}></Header>
     <div className='container center_text'>
-      <div className='child card'>
+      <div className='child_25 card'>
         <div>
           <div>
             <h1>Sign in to your account</h1>

@@ -33,7 +33,7 @@ const Signup = () => {
   <>
   <Header data={"Register"}></Header>
     <div className='container center_text'>
-      <div className='child card'>
+      <div className='child_25 card'>
         <div>
           <div>
             <h1>Sign up for a free account</h1>

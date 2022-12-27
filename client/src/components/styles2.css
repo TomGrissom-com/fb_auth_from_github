@@ -1,21 +1,18 @@
 /* GLOBALS */
 .root{
   padding-top: 100px;
-  width: 60%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
-html{
-  width: 100vw;
-}
 body{
-  width: 100%;
+  width: 99%;
 }
 #logo{
   max-width: 100%;
 }
 #btBanner{
-  width: 100%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -132,6 +129,82 @@ nav a {
 /*=======================*/
 
 /*=======================*/
+/*Grid Control*/
+.gridSimple{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-rows: repeat(auto-fit, 250px);
+}
+.grid2x2{
+  display: grid;
+  grid-template-columns: minmax(15%,190px) 85%;
+  grid-template-rows: repeat(2, minmax(50px,auto));  
+}
+.grid3x3{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, auto);  
+}
+.grid4x4{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, minmax(50px,auto));
+}
+.grid8x8{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, minmax(50px,auto));
+}
+.grid8Auto{
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, auto);
+}
+.grid16Auto{
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, auto);
+}
+.grid_span{
+  grid-area: 1/1/1/-1;
+  justify-self: center;
+}
+/*GRID CONTROL FOR DASHBOARD*/
+.grid_userData{
+  grid-area: 1 / 1 / 1 / 1;
+  justify-self: start;
+}
+.grid_addContacts{
+  grid-area: 1 / 2 / 1 / -1;
+  justify-self: center;
+}
+.grid_contacts{
+  grid-area: 2 / 1 / 2 / -1;
+  justify-self: stretch;
+}
+/*GRID CONTROL FOR CONTACT VIEW*/
+.grid_contact_table{
+  grid-area: 1/1/-1/1;
+}
+  .grid_contact_table td{
+    width: 50%;
+  }
+.grid_addNote{
+  grid-area: 1/2/1/-1;
+  justify-self: center;
+  text-align: center;
+  width: 80%;
+
+}
+  .grid_addNote textarea{
+    padding: 8px;
+    width: 100%;
+    height: 75px;
+  }
+/*=======================*/
+
+/*=======================*/
 /*PADDINGS*/
 .p5{
   padding: 5px;
@@ -145,19 +218,69 @@ nav a {
 .p16{
   padding: 16px;
 }
+.p32{
+  padding: 32px;
+}
+/*=======================*/
+
+/*=======================*/
+/*MARGINS*/
+.m5{
+  margin: 5px;
+}
+.m8{
+  margin: 8px;
+}
+.m10{
+  margin: 10px;
+}
+.m16{
+  margin: 16px;
+}
+.m32{
+  margin: 32px;
+}
+/*=======================*/
 
 /*=======================*/
 /*Design Features*/
 .card{
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px;
+}
+.card_plain{
   background-color: lightgray;
   border: 2px solid black;
   border-radius: 5px;
-  padding-bottom: 100px;
-  padding-top: 100px;
   box-shadow: 5px 5px 10px;
 }
 .container{
   width: 100%;
+}
+.child{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.child_25{
+  max-width: 25%;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.child_50{
+  max-width: 50%;
+  min-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.child_75{
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .center_text{
   text-align: center;
@@ -168,11 +291,6 @@ nav a {
 .border_rounded{
   border: 1px solid black;
   border-radius: 5px;
-}
-.child{
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
 }
 .linkPlain{
   margin: 0;
@@ -191,17 +309,10 @@ nav a {
 
 @media only screen and (max-width: 810px) {
   /*GLOBALS*/
-  html{margin: 0;}
-  body{margin: 0;}
   .root{
     width: 100%;
     margin: 0;
     box-sizing: border-box;
-  }
-  .child{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
   #btBanner{
     width: 100%;

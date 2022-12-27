@@ -35,52 +35,49 @@ export function AddContact(){
     }
 
     return(<>
-        <div>
-            <h2>Add Contact</h2>
+        <div className="card_plain p8">
+            <div className="">
+                <h2>Add Contact</h2>
+            </div>
             <div>
-                <div>
-                    <form onSubmit={handleSubmit}>
-                   
-
-                    <input 
+                <form onSubmit={handleSubmit}>
+                    <input
+                        className="m5 p5 border_rounded" 
                         type="text" 
                         placeholder="First Name"
                         value={first_name}
                         onChange={(e) => setFirst_name(e.target.value)}>
-                    </input><br/>
-                    
+                    </input>
                     <input 
+                        className="m5 p5 border_rounded"
                         type="text"
                         placeholder="Last Name"
                         value={last_name}
                         onChange={(e) => setLast_name(e.target.value)}>
                     </input><br/>
-                   
                     <input 
+                        className="m5 p5 border_rounded"
                         type="text" 
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}>
-                    </input><br/>
-                    
+                    </input>
                     <input 
+                        className="m5 p5 border_rounded"
                         type="text"
                         placeholder="Main Phone"
                         value={phone_number01}
                         onChange={(e) => setPhone_number01(e.target.value)}>
                     </input><br/>
-                   
                     <input 
+                        className="m5 p5 border_rounded"
                         type="text"
                         placeholder="Secondary Phone"
                         value={phone_number02}
                         onChange={(e) => setPhone_number02(e.target.value)}>
-                    </input><br/>
-                                      
-                    <input type="submit" value="Submit"></input>
-                    
-                    </form>
-                </div>
+                    </input>   
+                    <input className="m5 p5 border_rounded" type="submit" value="Submit"></input>
+                </form>
             </div>
         </div>
     </>)

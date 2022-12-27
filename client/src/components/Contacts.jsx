@@ -65,7 +65,7 @@
                                             <td>
                                             <button className='table_button' onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
                                             </td>
-                                            <td><a className='table_button' href={"account/contact?id="+doc.id}>View</a></td>
+                                            <td><a className='table_button p5' href={"account/contact?id="+doc.id}>View</a></td>
                                         </tr>
                                     </tbody>
                                 )

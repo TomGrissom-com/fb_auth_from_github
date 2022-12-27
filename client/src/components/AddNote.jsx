@@ -20,14 +20,13 @@ export default function AddNote( contactId ) {
     <>
         <div>
             <form>
-                <label>Add notes</label><br/>
                 <textarea 
                     type="text" 
                     placeholder="Write A Note"
                     value={note}
                     onChange={(e) => setNote(e.target.value)}>
                 </textarea><br/>
-                <input type="submit" value="Submit" onClick={handleSubmitNote}></input>
+                <input type="submit" value="Add Note" onClick={handleSubmitNote}></input>
             </form>
         </div>
     </>
