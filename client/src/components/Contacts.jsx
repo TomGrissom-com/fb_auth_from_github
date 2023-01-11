@@ -1,9 +1,11 @@
     import React, { useState, useEffect } from 'react';
     import ContactsServices from '../Firebase/services';
-    import { collection, query, where } from 'firebase/firestore';
+    import { collection, query, where, orderBy } from 'firebase/firestore';
     import { db } from '../Firebase/firebase'
     import { UserAuth } from '../context/AuthContext';
     import moment from 'moment';
+    import { Link } from 'react-router-dom';
+    import trash from '../images/trash.png'
 
 
     const contactsCollection = collection(db,'contacts')
@@ -19,7 +21,7 @@
         },[props]);
 
         const getContacts = async () => {
-            const q = query(contactsCollection, where("uid","==", userID))
+            const q = query(contactsCollection, where("uid","==", userID), orderBy("last_name"))
             const data = await ContactsServices.getAllUserData(q);
             setList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
             }
@@ -35,9 +37,6 @@
     return (<>
             <div>
                 <div>
-                    <div>
-                        <h2>Contacts</h2>
-                    </div>
                     <div className='tableContainer'>
                         <table>
                                     <thead>
@@ -48,8 +47,8 @@
                                             <td key='email'>EMAIL</td>
                                             <td key='phone_number01'>MAIN PHONE</td>
                                             <td key='phone_number02'>SECONDARY PHONE</td>
-                                            <td key='delButton'>DELETE</td>
                                             <td key='viewButton'>VIEW</td>
+                                            <td key='delButton'>DELETE</td>
                                         </tr>
                                     </thead>
                             {list.map((doc, index) =>{
@@ -62,10 +61,12 @@
                                             <td key={doc.email}>{doc.email}</td>
                                             <td key={doc.phone_number01}>{doc.phone_number01}</td>
                                             <td key={doc.phone_number02}>{doc.phone_number02}</td>
+                                            <td><Link className='aTag_Button table_button p5' to="/account/contact" state={{from: doc.id}}>View</Link></td>
                                             <td>
-                                            <button className='table_button' onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
+                                                <Link className='table_button p5' onClick={(e)=>deleteHandler(doc.id)}>
+                                                    <img alt='Trash Can Press to Delete' className='trashCan' src={trash}></img>
+                                                </Link>  
                                             </td>
-                                            <td><a className='table_button p5' href={"account/contact?id="+doc.id}>View</a></td>
                                         </tr>
                                     </tbody>
                                 )

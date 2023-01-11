@@ -8,13 +8,16 @@ export function AddContact(){
     const [last_name, setLast_name]= useState('')
     const [phone_number01, setPhone_number01]= useState('')
     const [phone_number02, setPhone_number02]= useState('')
+    const [loading, setLoading] = useState('')
+    const [err, setErr] = useState('')
     const {user}= UserAuth()
     const uid = user.uid
     const timestamp = new Date();
-    console.log("keystroke logged at "+timestamp)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading("Loading")
+        setErr('')
         
         const newdata = {
             email,
@@ -25,13 +28,26 @@ export function AddContact(){
             timestamp,
             uid,
         }
-        await ContactServices.addData(newdata)
-        setEmail('')
-        setFirst_name('')
-        setLast_name('')
-        setPhone_number01('')
-        setPhone_number02('')
-        window.location.reload(false)
+        
+        if(!first_name || !last_name){
+            setErr("MUST HAVE FIRST AND LAST NAME")
+        }else{
+            try {
+                await ContactServices.addData(newdata);
+            } catch (e) {
+                setErr(e.message);
+            } 
+            setEmail('')
+            setFirst_name('')
+            setLast_name('')
+            setPhone_number01('')
+            setPhone_number02('')
+            setErr('')
+            window.location.reload(false)
+        }
+        
+        setLoading('')
+
     }
 
     return(<>
@@ -46,38 +62,44 @@ export function AddContact(){
                         type="text" 
                         placeholder="First Name"
                         value={first_name}
-                        onChange={(e) => setFirst_name(e.target.value)}>
+                        onChange={(e) => setFirst_name(e.target.value)}
+                        disabled={!loading ? "":"disabled"}>
                     </input>
                     <input 
                         className="m5 p5 border_rounded"
                         type="text"
                         placeholder="Last Name"
                         value={last_name}
-                        onChange={(e) => setLast_name(e.target.value)}>
+                        onChange={(e) => setLast_name(e.target.value)}
+                        disabled={!loading ? "":"disabled"}>
                     </input><br/>
                     <input 
                         className="m5 p5 border_rounded"
                         type="text" 
                         placeholder="Email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}>
+                        onChange={(e) => setEmail(e.target.value)}
+                        disabled={!loading ? "":"disabled"}>
                     </input>
                     <input 
                         className="m5 p5 border_rounded"
                         type="text"
                         placeholder="Main Phone"
                         value={phone_number01}
-                        onChange={(e) => setPhone_number01(e.target.value)}>
+                        onChange={(e) => setPhone_number01(e.target.value)}
+                        disabled={!loading ? "":"disabled"}>
                     </input><br/>
                     <input 
                         className="m5 p5 border_rounded"
                         type="text"
                         placeholder="Secondary Phone"
                         value={phone_number02}
-                        onChange={(e) => setPhone_number02(e.target.value)}>
+                        onChange={(e) => setPhone_number02(e.target.value)}
+                        disabled={!loading ? "":"disabled"}>
                     </input>   
-                    <input className="m5 p5 border_rounded" type="submit" value="Submit"></input>
+                    <input className="m5 p5 border_rounded" type="submit" value="Submit" disabled={!loading ? "":"disabled"}></input>
                 </form>
+                {!err ? '':<a className="txtRED">{err}</a>}
             </div>
         </div>
     </>)

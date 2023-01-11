@@ -7,13 +7,34 @@ import {
     updateDoc,
     deleteDoc,
     doc,
+    setDoc,
   } from "firebase/firestore";
 
 const contacts = 'contacts'
 const contactsCollection = collection(db,contacts)
 
 class ContactsServices {
+
+  //FOR USERS
+  createUserAccount = (uid, dataToAdd) => {
+    return setDoc(doc(db,"users",uid),dataToAdd)
+  }
   
+  addUserData=(dataToAdd,UID)=>{
+    const userData = collection(db,"users/"+UID)
+    return addDoc(userData,dataToAdd)
+  }
+
+  getUserData = (UID) => {
+    const userData = doc(db,"users",UID);
+    return getDoc(userData);
+  }
+
+  updateUserData = (UID, data) => {
+    const dataRef = doc(db,"users",UID)
+    return updateDoc(dataRef, data)
+  }
+//DATA CONTROL FROM FIRST INIT
   getAllData = () => {
     return getDocs(contactsCollection);
   } 

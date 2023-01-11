@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import {Header} from '../components/Header'
+import ContactServices from '../Firebase/services'
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ const Signup = () => {
   const { createUser } = UserAuth();
   const navigate = useNavigate()
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setPWError('');
@@ -18,12 +20,19 @@ const Signup = () => {
     if(password != passwordV){
       setPWError("Passwords Must Match")
     }else{
-        try {
-          await createUser(email, password);
-          navigate('/account')
+      try {
+        await createUser(email, password).then(cred => {
+          const UID = cred.user.uid
+          const User_email = email
+          const dataToAdd = {
+              User_email,
+              UID
+            }
+
+            ContactServices.createUserAccount(cred.user.uid, dataToAdd)})
+            navigate('/Dashboard')
         } catch (e) {
           setPWError(e.message);
-          console.log(e.message);
         }
       };
     }
@@ -39,7 +48,7 @@ const Signup = () => {
             <h1>Sign up for a free account</h1>
             <p>
               Already have an account yet?{' '}
-              <Link to='/signin' className='linkPlain'>
+              <Link to='/signin' className='txtBLUE'>
                 Sign in.
               </Link>
             </p>

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 import ContactsServices from '../Firebase/services'
 import AddNote from '../components/AddNote'
 import Notes from '../components/Notes'
+import { useLocation } from 'react-router-dom'
 
-export default function Contact(id) {
+export default function Contact() {
   const [contactData, setContactData] = useState([])
   const url = window.location.href
-  const contactId = url.split("?id=")[1] 
-  console.log(contactId)
+  const location = useLocation()
+  const {from} = location.state
+  const contactId = from
+
 
    useEffect(()=>{
     getContact();
@@ -50,7 +53,7 @@ export default function Contact(id) {
         <div className='grid_addNote'>
           <AddNote data={contactId}></AddNote>
         </div>
-        <div className=''>
+        <div className='notes'>
           <Notes data={contactId}></Notes>
         </div>
       </div>

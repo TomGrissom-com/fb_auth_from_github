@@ -1,12 +1,18 @@
 /* GLOBALS */
 .root{
-  padding-top: 100px;
+  padding-top: 76px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  --sidebar: 50px;
+}
+.main_content{
+  padding-left: calc(var(--sidebar) + 10px);
+  padding-top: 10px;
 }
 body{
-  width: 99%;
+  width: 100%;
+  margin: 0;
 }
 #logo{
   max-width: 100%;
@@ -16,7 +22,7 @@ body{
   margin-left: auto;
   margin-right: auto;
 }
-a{
+.aTag_Button{
   padding: 16px;
   margin: 5px;
   background-color: rgb(124,89,176);
@@ -26,7 +32,7 @@ a{
   color: white;
   cursor: pointer;
 }
-a:hover {
+.aTag_Button:hover {
   background-color: rgb(68,156,178);
   color: black;
 }
@@ -43,10 +49,54 @@ button{
 button:hover{
   background-color: rgb(68,156,178);
 }
+.sidebar{
+  float: left;
+  position: absolute;
+  width: var(--sidebar);
+  margin: 0;
+  height: 100vh;
+  border: 2px solid black;
+  background-color: #079ca2;
+}
+.icon{
+  width: 100%;
+  margin-top: 2px;
+}
 /*=======================*/
+
+/*=======================*/
+/*text colors*/
+.txtBLACK{
+  color: black;
+}
+.txtWHITE{
+  color: white;
+}
+.txtBLUE{
+  color: blue;
+}
+.txtRED{
+  color: red;
+}
+/*=======================*/
+
+/*=======================*/
+/*background colors*/
+.bgNONE{
+  background-color: unset;
+}
+.bgRED{
+  background-color: red;
+}
+.bgWHITE{
+  background-color: white;
+}
+/*=======================*/
+
 /*Table Control*/
 .tableContainer{
   overflow-x:auto;
+  overflow-y: hidden;
 }
 table {
   width: 100%;
@@ -54,13 +104,16 @@ table {
   border-spacing: 0;
   border: 1px solid #ddd;
 }
+.table_button{
+  margin: 0;
+}
 thead{
   font-weight: bold;
   background-color: rgb(217, 217, 217);
 }
 th, td {
   text-align: left;
-  padding: 8px;
+  padding-left: 5px;
   border-collapse: collapse;
   border: 1px solid black;
 }
@@ -128,18 +181,34 @@ nav a {
 }
 /*=======================*/
 
+/**/
+.trashCan{
+  width: 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+.trashCan:hover{
+  background-color: red;
+  border-radius: 5px;
+}
+
 /*=======================*/
 /*Grid Control*/
 .gridSimple{
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, 250px);
-  grid-template-rows: repeat(auto-fit, 250px);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
 }
 .grid2x2{
   display: grid;
   grid-template-columns: minmax(15%,190px) 85%;
   grid-template-rows: repeat(2, minmax(50px,auto));  
+}
+.grid2auto{
+  display: grid;
+  grid-template-columns: 15% 85%;
+  gap: 15px;  
 }
 .grid3x3{
   display: grid;
@@ -150,11 +219,13 @@ nav a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, minmax(50px,auto));
+  gap: 15px;
 }
 .grid8x8{
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, minmax(50px,auto));
+  grid-template-rows: auto;
+  gap: 15px;
 }
 .grid8Auto{
   display: grid;
@@ -176,32 +247,62 @@ nav a {
   justify-self: start;
 }
 .grid_addContacts{
-  grid-area: 1 / 2 / 1 / -1;
-  justify-self: center;
+  grid-area: 1 / 1 / 1 / 1;
 }
 .grid_contacts{
-  grid-area: 2 / 1 / 2 / -1;
-  justify-self: stretch;
+  grid-area: 1 / 2 / -1 / -1;
 }
 /*GRID CONTROL FOR CONTACT VIEW*/
 .grid_contact_table{
   grid-area: 1/1/-1/1;
 }
-  .grid_contact_table td{
-    width: 50%;
-  }
+.grid_contact_table td{
+  width: 50%;
+}
+/*NOTES BOX GRID*/
 .grid_addNote{
   grid-area: 1/2/1/-1;
   justify-self: center;
   text-align: center;
   width: 80%;
-
 }
-  .grid_addNote textarea{
-    padding: 8px;
-    width: 100%;
-    height: 75px;
-  }
+.grid_addNote textarea{
+  padding: 15px;
+  width: 100%;
+  height: 75px;
+  background-color: #f5f5dc;
+  border-radius: 15px;
+}
+.notes{
+  grid-area: 2/2/2/-1;
+}
+.notesBox{
+  min-height: 150px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: auto;
+  background-color: beige;
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 15px;
+}
+.notesTimestamp{
+  grid-area: 1/1/1/-1;
+  padding: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgb(240, 240, 171);
+}
+.notesNote{
+  grid-area: 2/1/3/-1;
+  padding: 10px;
+}
+.notesDeleteButton{
+  grid-area: 3/3/3/3;
+  padding: 10px;
+  justify-self: end;
+  align-self: flex-end;
+}
 /*=======================*/
 
 /*=======================*/
@@ -307,17 +408,124 @@ nav a {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 810px) {
-  /*GLOBALS*/
-  .root{
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  #btBanner{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  @media only screen and (max-width: 1041px) {
+    /*GLOBALS*/
+    .root{
+      width: 100%;
+      margin: 0;
+      box-sizing: border-box;
     }
-    
+    #btBanner{
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      }
+    /*=======================*/
+  /*Grid Control*/
+  .gridSimple{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
   }
+  .grid2x2{
+    display: grid;
+    grid-template-columns: minmax(15%,190px) 85%;
+    grid-template-rows: repeat(2, minmax(50px,auto));  
+  }
+  .grid3x3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, auto);  
+  }
+  .grid4x4{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, minmax(50px,auto));
+  }
+  .grid8x8{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, minmax(50px,auto));
+  }
+  .grid8Auto{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, auto);
+  }
+  .grid16Auto{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, auto);
+  }
+  .grid_span{
+    grid-area: 1/1/1/-1;
+    justify-self: center;
+  }
+  /*GRID CONTROL FOR DASHBOARD*/
+  .grid_userData{
+    grid-area: 1 / 1 / 1 / -1;
+    justify-self: center;
+  }
+  .grid_addContacts{
+    grid-area: 2 / 1  / 2 / -1;
+    justify-self: center;
+  }
+  .grid_contacts{
+    grid-area: 3 / 1 / 3 / -1;
+  }
+  /*GRID CONTROL FOR CONTACT VIEW*/
+  .grid_contact_table{
+    grid-area: 1/1/1/1;
+  }
+    .grid_contact_table td{
+      width: 50%;
+    }
+  /*=======================*/
+/*NOTES BOX GRID*/
+.grid_addNote{
+  grid-area: 2/1/2/-1;
+  justify-self: left;
+  text-align: center;
+  width: 80%;
+}
+.grid_addNote textarea{
+  padding: 15px;
+  width: 100%;
+  height: 75px;
+  background-color: #f5f5dc;
+  border-radius: 15px;
+}
+.notes{
+  grid-area: 3/1/3/-1;
+}
+.notesBox{
+  min-height: 150px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: auto;
+  background-color: beige;
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 15px;
+}
+.notesTimestamp{
+  grid-area: 1/1/1/-1;
+  padding: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgb(240, 240, 171);
+}
+.notesNote{
+  grid-area: 2/1/3/-1;
+  padding: 10px;
+}
+.notesDeleteButton{
+  grid-area: 3/3/3/3;
+  padding: 10px;
+  justify-self: end;
+  align-self: flex-end;
+}
+/*=======================*/
+
+    }

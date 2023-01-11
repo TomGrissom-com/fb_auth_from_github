@@ -1,5 +1,4 @@
 import React from 'react'
-import btlogo from '../images/btlogo.png'
 import bttopper from '../images/bt_topper.png'
 import menubtn from '../images/Menu Button BT.png'
 import menubtnX from '../images/Menu Button BT X.png'
@@ -39,7 +38,7 @@ export function Header(props) {
     <>
     <div id='mobile_ui'>
       <div className='top'>
-        <a href='/account' className='reset'><img className='headerLogo' src={bttopper}></img></a>
+        <a href='/Dashboard' className='reset'><img className='headerLogo' title='BetterCRM by BetterTech - Better Solutions, Better Prices, BetterTech' src={bttopper}></img></a>
         <h1 className='pageName'>{props.data}</h1>
         <a onClick={ShowMenu} className='logo menubtn'><img id='menubtn' src={menubtn}/></a>
       </div>
@@ -49,12 +48,11 @@ export function Header(props) {
                 <a onClick={ShowMenu} className='logo'><img id='logo' src={bttopper}/></a>
             </div>
             <div className=''>
-                {!user ? <a
-                href='/'>Main Screen</a> : ""}
-                {!user ? <a href='/signin'>Sign In</a> : ""}
-                {!user ? <a href='/signup'>Sign up</a> : ""}
-                {!user ? "" : <a href='/account'>Dashboard</a>}
-                {!user ? "" : <a onClick={handleLogout}>Logout</a>}
+                {!user ? <a className='aTag_Button'href='/'>Main Screen</a> : ""}
+                {!user ? <a className='aTag_Button' href='/signin'>Sign In</a> : ""}
+                {!user ? <a className='aTag_Button' href='/signup'>Sign up</a> : ""}
+                {!user ? "" : <a className='aTag_Button' href='/Dashboard'>Dashboard</a>}
+                {!user ? "" : <a className='aTag_Button' onClick={handleLogout}>Logout</a>}
           </div>
         </nav>
     </div>

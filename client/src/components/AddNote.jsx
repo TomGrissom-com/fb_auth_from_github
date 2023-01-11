@@ -4,12 +4,14 @@ import ContactServices from '../Firebase/services';
 
 export default function AddNote( contactId ) {
     const [note, setNote] = useState("")
+    const timestamp = new Date();
 
     const handleSubmitNote = async (e) => {
         e.preventDefault();
         
         const newdata = {
-            note
+            note,
+            timestamp,
         }
         await ContactServices.addNote(newdata,contactId.data)
         setNote("")

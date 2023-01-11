@@ -16,7 +16,7 @@ const Signin = () => {
     setError('')
     try {
       await signIn(email, password)
-      navigate('/account')
+      navigate('/Dashboard')
     } catch (e) {
       setError(e.message)
       console.log(e.message)
@@ -33,7 +33,7 @@ const Signin = () => {
             <h1>Sign in to your account</h1>
             <p>
               Don't have an account yet?{' '}
-              <Link className='linkPlain' to='/signup'>
+              <Link className='txtBLUE' to='/signup'>
                 Sign up.
               </Link>
             </p>
