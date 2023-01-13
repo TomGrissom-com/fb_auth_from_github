@@ -38,14 +38,14 @@ export function Header(props) {
     <>
     <div id='mobile_ui'>
       <div className='top'>
-        <a href='/Dashboard' className='reset'><img className='headerLogo' title='BetterCRM by BetterTech - Better Solutions, Better Prices, BetterTech' src={bttopper}></img></a>
+        <a href='/Dashboard' className='reset'><img className='headerLogo' alt='company logo'  title='BetterCRM by BetterTech - Better Solutions, Better Prices, BetterTech' src={bttopper}></img></a>
         <h1 className='pageName'>{props.data}</h1>
-        <a onClick={ShowMenu} className='logo menubtn'><img id='menubtn' src={menubtn}/></a>
+        <a onClick={ShowMenu} className='logo menubtn'><img id='menubtn' alt='menu hamburger' src={menubtn}/></a>
       </div>
         <nav style={!menu ?  {right:'-100%'} : {right:'0'}} >
             <div className='container'>
-                <a onClick={ShowMenu} className='logo' style={{float: 'right'}}><img id='menubtn' src={menubtnX}/></a>
-                <a onClick={ShowMenu} className='logo'><img id='logo' src={bttopper}/></a>
+                <a onClick={ShowMenu} className='logo' style={{float: 'right'}}><img id='menubtn' alt='menu closer' src={menubtnX}/></a>
+                <a onClick={ShowMenu} className='logo'><img id='logo' alt="company logo in a card" src={bttopper}/></a>
             </div>
             <div className=''>
                 {!user ? <a className='aTag_Button'href='/'>Main Screen</a> : ""}
