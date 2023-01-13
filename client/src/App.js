@@ -17,21 +17,22 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path='/signin' element={<Signin />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/Dashboard' element={
-                                                <ProtectedRoutes>
-                                                  <Dashboard />
-                                                </ProtectedRoutes>
-                                              }/>
-            <Route path='/account/contact' element={
-                                                    <ProtectedRoutes>
-                                                      <ContactView />
-                                                    </ProtectedRoutes>
-                                                  }/>
-            <Route path='/account/contacts' element={
-                                                    <ProtectedRoutes>
-                                                      <ContactsView />
-                                                    </ProtectedRoutes>
-                                                  }/>
+              <Route path='/Dashboard' element={
+                  <ProtectedRoutes>
+                    <Dashboard/>
+                  </ProtectedRoutes>
+                  
+                  }/>
+              <Route path='/account/contact' element={
+              <ProtectedRoutes>
+                <ContactView />
+              </ProtectedRoutes>
+              
+              }/>
+              <Route path='/account/contacts' element={
+              <ProtectedRoutes>
+                <ContactsView />
+              </ProtectedRoutes>}/>
           </Routes>
         </AuthContextProvider>
     </div>

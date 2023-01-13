@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import {Header} from '../components/Header'
 import ContactServices from '../Firebase/services'
+import { sendEmailVerification } from "firebase/auth";
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -28,7 +29,7 @@ const Signup = () => {
               User_email,
               UID
             }
-
+            sendEmailVerification(cred.user)
             ContactServices.createUserAccount(cred.user.uid, dataToAdd)})
             navigate('/Dashboard')
         } catch (e) {

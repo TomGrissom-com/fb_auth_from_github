@@ -11,32 +11,34 @@ import {
   } from "firebase/firestore";
 
 const contacts = 'contacts'
-const contactsCollection = collection(db,contacts)
+const users = 'users'
 
 class ContactsServices {
 
   //FOR USERS
   createUserAccount = (uid, dataToAdd) => {
-    return setDoc(doc(db,"users",uid),dataToAdd)
+    return setDoc(doc(db,users,uid),dataToAdd)
   }
   
   addUserData=(dataToAdd,UID)=>{
-    const userData = collection(db,"users/"+UID)
+    const userData = collection(db,users+"/"+UID)
     return addDoc(userData,dataToAdd)
   }
 
   getUserData = (UID) => {
-    const userData = doc(db,"users",UID);
+    const userData = doc(db,users,UID);
     return getDoc(userData);
   }
 
   updateUserData = (UID, data) => {
-    const dataRef = doc(db,"users",UID)
+    const dataRef = doc(db,users,UID)
     return updateDoc(dataRef, data)
   }
+
+
 //DATA CONTROL FROM FIRST INIT
   getAllData = () => {
-    return getDocs(contactsCollection);
+    return getDocs(collection(db,contacts));
   } 
   
   getAllUserData = (uid) => {
@@ -48,13 +50,13 @@ class ContactsServices {
     return getDoc(docRef);
   }
   
-  updateSingleDoc = (id) => {
+  updateSingleDoc = (id, dataToUpdate) => {
     const docRef = doc(db,contacts,id);
-    return updateDoc(docRef);
+    return updateDoc(docRef, dataToUpdate);
   }
   
   addData=(dataToAdd)=>{
-    return addDoc(contactsCollection,dataToAdd)
+    return addDoc(collection(db,contacts),dataToAdd)
   }
 
   getNotes(contactID){

@@ -15,8 +15,6 @@ export default function Notes( contactId ) {
         const data = await ContactsServices.getNotes(contactId.data);
         setNotes(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         }
-
-    console.log(notes)
     
     const deleteHandler = async (id) => {
         await ContactsServices.deleteNote(id,contactId.data)

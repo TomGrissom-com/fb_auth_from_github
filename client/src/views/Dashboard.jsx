@@ -16,8 +16,7 @@ const Dashboard = () => {
       <div className='gridSimple'>
           <div className='grid_userData card_plain p8'>
             <h3>Account Information</h3>
-            <p>PUT USER INFORMATION HERE</p>
-            <UserInfo props={user.uid}></UserInfo>
+              <UserInfo props={user}></UserInfo>
           </div>
       </div>
     </div>

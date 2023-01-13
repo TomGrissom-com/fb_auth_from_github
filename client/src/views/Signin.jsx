@@ -1,4 +1,4 @@
-import userEvent from '@testing-library/user-event';
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
@@ -9,7 +9,7 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const { user, signIn, emailVerified } = UserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,10 +21,13 @@ const Signin = () => {
       setError(e.message)
       console.log(e.message)
     }
-  };
+  }
+
+
+
 
   return (
-  <>
+    <>
     <Header data={"Sign In"}></Header>
     <div className='container center_text'>
       <div className='child_25 card'>
@@ -51,6 +54,8 @@ const Signin = () => {
               Sign In
             </button>
           </form>
+          {!error ? '':<p style={{color: "red"}}>{"WE COULD NOT IDENTIFY YOUR ACCOUNT"}</p>}
+          {emailVerified == false ? <p style={{color: "red"}}>Email Not Verified</p>:""}
         </div>
       </div>
     </div>

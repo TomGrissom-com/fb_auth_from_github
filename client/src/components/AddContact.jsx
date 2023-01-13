@@ -26,6 +26,7 @@ export function AddContact(){
             phone_number01,
             phone_number02,
             timestamp,
+            lastUpdated: timestamp,
             uid,
         }
         

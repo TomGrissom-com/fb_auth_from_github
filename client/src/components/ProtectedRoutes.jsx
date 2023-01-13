@@ -3,11 +3,16 @@ import { Navigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 
 const ProtectedRoutes = ({ children }) => {
-  const { user } = UserAuth();
+  const { user, emailVerified } = UserAuth();
+  
 
-  return(
-    !user ? <Navigate to="/signin"/> : children
-  )
-};
+
+  if(!user || emailVerified === false){
+    return <Navigate to="/signin"/>;
+  }else{
+        console.log("email is "+emailVerified)  
+        return children
+    }
+  };
 
 export default ProtectedRoutes;
