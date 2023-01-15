@@ -10,7 +10,6 @@ const ProtectedRoutes = ({ children }) => {
   if(!user || emailVerified === false){
     return <Navigate to="/signin"/>;
   }else{
-        console.log("email is "+emailVerified)  
         return children
     }
   };

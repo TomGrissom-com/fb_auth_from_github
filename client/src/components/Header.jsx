@@ -31,7 +31,6 @@ export function Header(props) {
         setMenu('true')
       }else{
         setMenu()}
-      console.log(menu)
     }
 
   return (
