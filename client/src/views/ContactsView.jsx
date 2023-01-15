@@ -7,20 +7,14 @@ import Sidebar from '../components/Sidebar';
 
 
 const ContactsView = () => {
-  const { user, logout } = UserAuth();
-
-
+  const { user } = UserAuth();
+  
   return (<>
     <Header data={"Contacts"}></Header>
     <Sidebar/>
     <div className='main_content'>
       <div className='grid8x8'>
-          <div className='grid_addContacts'>
-            <AddContact></AddContact>
-          </div>
-          <div className='grid_contacts'>
-              <Contacts props={user.uid}/>
-          </div>
+        <Contacts props={user.uid}></Contacts>
       </div>
     </div>
    </>

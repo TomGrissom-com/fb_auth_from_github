@@ -25,6 +25,9 @@ export default function Contact() {
   const [phone02, setPhone02] = useState('')
   const [loading, setLoading] = useState('Loading...')
   const lastUpdated = new Date();
+//General
+const [alert, setAlert] = useState('')
+
 
    useEffect(()=>{
     getContact();
@@ -45,15 +48,19 @@ export default function Contact() {
     await ContactsServices.updateSingleDoc(contactId, dataToUpdate).catch(err=>console.log(err))
     [data3]
     getContact()
-    console.log(dataToUpdate)
+    alarm("Contact Updated")
   }
-
+  const alarm = (msg)=>{
+    setAlert(msg)
+    setTimeout(()=>{setAlert('')},2900)
+}
 
    
   return (
     <>
       <div className='grid4x4'>
         <div className='grid_contact_table'>
+                <div id="toast" className={!alert ? "" : "show"}>{alert}</div>
           <table>
           
             <tbody>
