@@ -150,13 +150,13 @@
                             <table>
                                         <thead>
                                             <tr key='table'>
-                                                <td key='created'>CREATED</td>
+                                                <td key='viewButton'>VIEW</td>
                                                 <td key='first_name'>FIRST NAME</td>
                                                 <td key='last_name'>LAST NAME</td>
                                                 <td key='email'>EMAIL</td>
                                                 <td key='phone_number01'>MAIN PHONE</td>
                                                 <td key='phone_number02'>SECONDARY PHONE</td>
-                                                <td key='viewButton'>VIEW</td>
+                                                <td key='created'>CREATED</td>
                                                 <td key='delButton'>DELETE</td>
                                             </tr>
                                         </thead>
@@ -164,13 +164,13 @@
                                     return(
                                         <tbody key={doc.id+"body"}>
                                             <tr id={index} key={doc.id}>
-                                                <td key={new Date(doc.timestamp.seconds * 1000).toLocaleDateString("en-US")}>{moment(new Date(doc.timestamp.seconds * 1000)).format("MM/DD/yy  h:mm a")}</td>
-                                                <td key={doc.first_name}>{doc.first_name}</td>
-                                                <td key={doc.last_name}>{doc.last_name}</td>
-                                                <td key={doc.email}>{doc.email}</td>
+                                                <td><Link className='aTag_Button table_button p5' to="/account/contact" state={{from: doc.id}}>View</Link></td>
+                                                <td key={doc.first_name}><Link className='reset' to="/account/contact" state={{from: doc.id}} >{doc.first_name}</Link></td>
+                                                <td key={doc.last_name}><Link className='reset' to="/account/contact" state={{from: doc.id}} >{doc.last_name}</Link></td>
+                                                <td key={doc.email}><a className='reset' href={'mailto:'+doc.email} target="blank">{doc.email}</a></td>
                                                 <td key={doc.phone_number01}>{doc.phone_number01}</td>
                                                 <td key={doc.phone_number02}>{doc.phone_number02}</td>
-                                                <td><Link className='aTag_Button table_button p5' to="/account/contact" state={{from: doc.id}}>View</Link></td>
+                                                <td key={new Date(doc.timestamp.seconds * 1000).toLocaleDateString("en-US")}>{moment(new Date(doc.timestamp.seconds * 1000)).format("MM/DD/yy  h:mm a")}</td>
                                                 <td>
                                                     <Link className='table_button p5' onClick={(e)=>deleteHandler(doc.id)}>
                                                         <img alt='Trash Can Press to Delete' className='trashCan' src={trash}></img>

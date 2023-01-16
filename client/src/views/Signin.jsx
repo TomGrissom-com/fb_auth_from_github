@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import {Header} from '../components/Header'
@@ -10,6 +10,12 @@ const Signin = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { user, signIn, emailVerified, googleSignin, googleSigninRedir } = UserAuth();
+  
+  useEffect(()=>{
+    if(user && emailVerified){
+      navigate('/Dashboard')
+    }
+  },[user])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,10 +26,6 @@ const Signin = () => {
     } catch (e) {
       setError(e.message)
     }
-  }
-  
-  if(user){
-    navigate('/Dashboard')
   }
 
   return (
@@ -56,7 +58,7 @@ const Signin = () => {
           </form>
           <button className='login-with-google-btn' onClick={()=>googleSignin()}>Log in with Google</button>
           {!error ? '':<p style={{color: "red"}}>{"WE COULD NOT IDENTIFY YOUR ACCOUNT"}</p>}
-          {emailVerified == false ? <p style={{color: "red"}}>Email Not Verified</p>:""}
+          {emailVerified == false ? <p style={{color: "red"}}>please check your email for email verification</p>:""}
         </div>
       </div>
     </div>

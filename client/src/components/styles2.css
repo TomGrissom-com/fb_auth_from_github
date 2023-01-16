@@ -6,6 +6,9 @@
   margin-right: auto;
   --sidebar: 50px;
 }
+td{
+  word-wrap: break-word;
+}
 .main_content{
   padding-left: calc(var(--sidebar) + 10px);
   padding-top: 10px;
@@ -534,13 +537,16 @@ nav a {
   }
   .grid4x4{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, minmax(50px,auto));
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(auto-fit, minmax(50px,auto));
+    gap: 0;
+    row-gap: 15px;
+    padding-right: 10px;
   }
   .grid8x8{
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, minmax(50px,auto));
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: repeat(auto-fit, minmax(50px,auto));
   }
   .grid8Auto{
     display: grid;
@@ -574,24 +580,28 @@ nav a {
   }
     .grid_contact_table td{
       width: 50%;
+      padding: 5px;
     }
   /*=======================*/
 /*NOTES BOX GRID*/
 .grid_addNote{
-  grid-area: 2/1/2/-1;
-  justify-self: left;
+  grid-area: 2/1/2/1;
+  justify-self: center;
   text-align: center;
-  width: 80%;
+  width: 90%;
 }
-.grid_addNote textarea{
+.grid_addNote textarea{ 
   padding: 15px;
-  width: 100%;
+  width: 90%;
   height: 75px;
   background-color: #f5f5dc;
   border-radius: 15px;
 }
+.grid_addNote form{
+  width: 100%;
+}
 .notes{
-  grid-area: 3/1/3/3;
+  grid-area: 3/1/3/1;
 }
 .notesBox{
   min-height: 150px;
