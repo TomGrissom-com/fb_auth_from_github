@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithRedirect,
+  signInWithPopup
 } from 'firebase/auth';
 import { auth } from '../Firebase/firebase';
 
@@ -29,7 +30,15 @@ export const AuthContextProvider = ({ children }) => {
 
   const googleSignin = () =>{
       const provider = new GoogleAuthProvider();
-      signInWithRedirect(auth,provider)
+      signInWithPopup(auth,provider).then((res)=>{
+        console.log(res)
+      }).catch((e)=>console.log(e))
+  }
+  const googleSigninRedir = () =>{
+      const provider = new GoogleAuthProvider();
+      signInWithRedirect(auth,provider).then((res)=>{
+        console.log(res)
+      }).catch((e)=>console.log(e))
   }
 
   useEffect(() => {
@@ -43,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ googleSignin, createUser, user, logout, signIn, emailVerified }}>
+    <UserContext.Provider value={{ googleSignin, createUser, user, logout, signIn, emailVerified, googleSigninRedir }}>
       {children}
     </UserContext.Provider>
   );

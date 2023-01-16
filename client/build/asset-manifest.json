@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5f24a37b.css",
+    "main.js": "/static/js/main.ca0e0438.js",
+    "static/media/Menu Button BT.png": "/static/media/Menu Button BT.309cf5a93bf5b711e33e.png",
+    "static/media/Menu Button BT X.png": "/static/media/Menu Button BT X.bc375bd81ce97d16652e.png",
+    "static/media/bt_topper.png": "/static/media/bt_topper.33d96fb91f4ba208248b.png",
+    "static/media/CONTACTS.png": "/static/media/CONTACTS.ecbd4427b27c0c5155ee.png",
+    "static/media/HOME.png": "/static/media/HOME.e1842fd3c5d5b9e36452.png",
+    "index.html": "/index.html",
+    "main.5f24a37b.css.map": "/static/css/main.5f24a37b.css.map",
+    "main.ca0e0438.js.map": "/static/js/main.ca0e0438.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f24a37b.css",
+    "static/js/main.ca0e0438.js"
+  ]
+}

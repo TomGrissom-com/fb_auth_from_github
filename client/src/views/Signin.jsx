@@ -9,7 +9,7 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { user, signIn, emailVerified } = UserAuth();
+  const { user, signIn, emailVerified, googleSignin, googleSigninRedir } = UserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,12 +19,12 @@ const Signin = () => {
       navigate('/Dashboard')
     } catch (e) {
       setError(e.message)
-      console.log(e.message)
     }
   }
-
-
-
+  
+  if(user){
+    navigate('/Dashboard')
+  }
 
   return (
     <>
@@ -54,6 +54,7 @@ const Signin = () => {
               Sign In
             </button>
           </form>
+          <button className='login-with-google-btn' onClick={()=>googleSignin()}>Log in with Google</button>
           {!error ? '':<p style={{color: "red"}}>{"WE COULD NOT IDENTIFY YOUR ACCOUNT"}</p>}
           {emailVerified == false ? <p style={{color: "red"}}>Email Not Verified</p>:""}
         </div>
