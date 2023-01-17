@@ -303,7 +303,7 @@ body {
   }
   
 .SideBar > li a {
-    display: block;
+    /* display: block; */
     color: #000;
     padding: 8px 16px;
     text-decoration: none;
@@ -320,7 +320,7 @@ body {
   }
 
 .SideBar > img {
-    display:block;
+    /* display:block; */
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;

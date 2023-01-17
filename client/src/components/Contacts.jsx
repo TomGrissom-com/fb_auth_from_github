@@ -40,16 +40,16 @@
                     </div>
                     <div className='tableContainer'>
                         <table>
-                                    <thead>
+                                    <thead className="flex-table header">
                                         <tr key='table'>
-                                            <td key='created'>CREATED</td>
-                                            <td key='first_name'>FIRST NAME</td>
-                                            <td key='last_name'>LAST NAME</td>
-                                            <td key='email'>EMAIL</td>
-                                            <td key='phone_number01'>MAIN PHONE</td>
-                                            <td key='phone_number02'>SECONDARY PHONE</td>
-                                            <td key='delButton'>DELETE</td>
-                                            <td key='viewButton'>VIEW</td>
+                                            <td key='created' className="flex-row first">DATE</td>
+                                            <td key='first_name' className="flex-row">FIRST NAME</td>
+                                            <td key='last_name' className="flex-row">LAST NAME</td>
+                                            <td key='email' className="flex-row">EMAIL</td>
+                                            <td key='phone_number01' className="flex-row">MAIN PHONE</td>
+                                            <td key='phone_number02' className="flex-row">SECONDARY PHONE</td>
+                                            <td key='delButton' className="flex-row">DELETE</td>
+                                            <td key='viewButton' className="flex-row">VIEW</td>
                                         </tr>
                                     </thead>
                             {list.map((doc, index) =>{
