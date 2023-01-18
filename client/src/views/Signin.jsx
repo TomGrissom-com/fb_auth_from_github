@@ -60,6 +60,10 @@ const Signin = () => {
           {!error ? '':<p style={{color: "red"}}>{"WE COULD NOT IDENTIFY YOUR ACCOUNT"}</p>}
           {emailVerified == false ? <p style={{color: "red"}}>please check your email for email verification</p>:""}
         </div>
+        <h3 style={{color: "red"}}><i>NOTE: This program is in Alpha Testing 
+                                    <br/> and Currently in Development 
+                                    <br/> please provide feedback and suggestions to <a href='Mailto:info@bettertechsol.com' target='blank'>info@bettertechsol.com
+                                    </a></i></h3>
       </div>
     </div>
   </>

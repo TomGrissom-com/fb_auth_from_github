@@ -81,6 +81,10 @@ const Signup = () => {
               Sign Up
             </button>
           </form>
+          <h3 style={{color: "red"}}><i>NOTE: This program is in Alpha Testing 
+                                    <br/> and Currently in Development 
+                                    <br/> please provide feedback and suggestions to <a href='Mailto:info@bettertechsol.com' target='blank'>info@bettertechsol.com
+                                    </a></i></h3>
         </div>
       </div>
     </div>
