@@ -45,35 +45,34 @@ export default function Contact() {
 const [alert, setAlert] = useState('')
 
 
-   useEffect(()=>{
-    getContact();
-   },[])
-  
-   const getContact = async ()=>{
-     const data = await ContactsServices.getSingleDoc(contactId); 
-     setContactData(data.data())
-     setLoading("")
-     
-  }
+useEffect(()=>{
+  getContact();
+},[])
 
-  const updateContact = async (data, data2,data3)=>{
-    const dataToUpdate = {
-      [data]: data2,
-      lastUpdated: lastUpdated,
-    }
-    await ContactsServices.updateSingleDoc(contactId, dataToUpdate).catch(err=>console.log(err))
-    [data3]
-    getContact()
-    alarm("Contact Updated")
-  }
-  const alarm = (msg)=>{
-    setAlert(msg)
-    setTimeout(()=>{setAlert('')},2900)
+const getContact = async ()=>{
+  const data = await ContactsServices.getSingleDoc(contactId); 
+  setContactData(data.data())
+  setLoading("")
 }
 
-   
-  return (
-    <>
+const updateContact = async (data, data2,data3)=>{
+  const dataToUpdate = {
+    [data]: data2,
+    lastUpdated: lastUpdated,
+  }
+  await ContactsServices.updateSingleDoc(contactId, dataToUpdate).catch(err=>console.log(err))
+  [data3]
+  getContact()
+  alarm("Contact Updated")
+}
+
+const alarm = (msg)=>{
+  setAlert(msg)
+  setTimeout(()=>{setAlert('')},2900)
+}
+
+return (
+  <>
       <div className='grid4x4'>
         <div className='grid_contact_table'>
                 <div id="toast" className={!alert ? "" : "show"}>{alert}</div>
@@ -167,7 +166,7 @@ const [alert, setAlert] = useState('')
                 <td style={{background: 'lightgray'}}><strong>Email</strong></td>
                 <td>
                   {!changeDataEmail ? 
-                    contactData.email 
+                    <a className='reset' href={'mailto:'+contactData.email} target='blank'>{contactData.email}</a> 
                     : 
                     <>
                       <input type='email' value={email} onChange={(e)=>setEmail(e.target.value)}>

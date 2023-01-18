@@ -17,6 +17,7 @@
         const [last_name, setLast_name]= useState('')
         const [phone_number01, setPhone_number01]= useState('')
         const [phone_number02, setPhone_number02]= useState('')
+        const [Company, setCompany]= useState('')
         const [loading, setLoading] = useState('')
         const [err, setErr] = useState('')
         const timestamp = new Date();
@@ -43,6 +44,7 @@
                 last_name,
                 phone_number01,
                 phone_number02,
+                Company,
                 timestamp,
                 lastUpdated: timestamp,
                 uid,
@@ -135,6 +137,14 @@
                                 onChange={(e) => setPhone_number02(e.target.value)}
                                 disabled={!loading ? "":"disabled"}>
                             </input>   
+                            <input 
+                                className="m5 p5 border_rounded"
+                                type="text"
+                                placeholder="Company"
+                                value={Company}
+                                onChange={(e) => setCompany(e.target.value)}
+                                disabled={!loading ? "":"disabled"}>
+                            </input>   
                             <br></br>
                             <input id='submit' className="m5 p5 border_rounded" type="submit" value="Submit" disabled={!loading ? "":"disabled"}></input>
                         </form>
@@ -153,6 +163,7 @@
                                                 <td key='viewButton'>VIEW</td>
                                                 <td key='first_name'>FIRST NAME</td>
                                                 <td key='last_name'>LAST NAME</td>
+                                                <td key='Company'>COMPANY</td>
                                                 <td key='email'>EMAIL</td>
                                                 <td key='phone_number01'>MAIN PHONE</td>
                                                 <td key='phone_number02'>SECONDARY PHONE</td>
@@ -167,6 +178,7 @@
                                                 <td><Link className='aTag_Button table_button p5' to="/account/contact" state={{from: doc.id}}>View</Link></td>
                                                 <td key={doc.first_name}><Link className='reset' to="/account/contact" state={{from: doc.id}} >{doc.first_name}</Link></td>
                                                 <td key={doc.last_name}><Link className='reset' to="/account/contact" state={{from: doc.id}} >{doc.last_name}</Link></td>
+                                                <td key={doc.Company}>{doc.Company}</td>
                                                 <td key={doc.email}><a className='reset' href={'mailto:'+doc.email} target="blank">{doc.email}</a></td>
                                                 <td key={doc.phone_number01}>{doc.phone_number01}</td>
                                                 <td key={doc.phone_number02}>{doc.phone_number02}</td>
