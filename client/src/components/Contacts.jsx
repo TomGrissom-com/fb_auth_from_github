@@ -76,7 +76,7 @@
         }
 
         const getContacts = async () => {
-            const q = query(contactsCollection, where("uid","==", userID), orderBy("last_name"))
+            const q = query(contactsCollection, where("uid","==", user.uid), orderBy("last_name"))
             const data = await ContactsServices.getAllUserData(q);
             setList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
             }
