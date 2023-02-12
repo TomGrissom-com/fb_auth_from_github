@@ -90,8 +90,8 @@
 
     return (<>
             <div className='grid_addContacts'>
-                <div id="toast" className={!alert ? "" : "show"}>{alert}</div>
                 <div className="card_plain p8">
+                <div id="toast" className={!alert ? "" : "show"}>{alert}</div>
                     <div>
                         <h2>Add Contact</h2>
                     </div>
@@ -145,8 +145,7 @@
                                 onChange={(e) => setCompany(e.target.value)}
                                 disabled={!loading ? "":"disabled"}>
                             </input>   
-                            <br></br>
-                            <input id='submit' className="m5 p5 border_rounded" type="submit" value="Submit" disabled={!loading ? "":"disabled"}></input>
+                            <input className="m5 p5 border_rounded" type="submit" value="Submit" disabled={!loading ? "":"disabled"}></input>
                         </form>
                         {!err ? '':<a className="txtRED">{err}</a>}
                 </div>

@@ -9,6 +9,7 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+<<<<<<< HEAD
   const { user, signIn, emailVerified, googleSignin, googleSigninRedir } = UserAuth();
   
   useEffect(()=>{
@@ -16,6 +17,9 @@ const Signin = () => {
       navigate('/Dashboard')
     }
   },[user])
+=======
+  const { user, signIn, emailVerified } = UserAuth();
+>>>>>>> parent of 04c1e745 (Alpha Testing Ready)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,8 +29,15 @@ const Signin = () => {
       navigate('/Dashboard')
     } catch (e) {
       setError(e.message)
+      console.log(e.message)
     }
   }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> parent of 04c1e745 (Alpha Testing Ready)
 
   return (
     <>
@@ -56,7 +67,6 @@ const Signin = () => {
               Sign In
             </button>
           </form>
-          <button className='login-with-google-btn' onClick={()=>googleSignin()}>Log in with Google</button>
           {!error ? '':<p style={{color: "red"}}>{"WE COULD NOT IDENTIFY YOUR ACCOUNT"}</p>}
           {emailVerified == false ? <p style={{color: "red"}}>please check your email for email verification</p>:""}
         </div>

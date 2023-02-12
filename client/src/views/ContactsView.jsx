@@ -2,6 +2,7 @@ import React from 'react';
 import { UserAuth } from '../context/AuthContext';
 import {Header} from '../components/Header'
 import Contacts from '../components/Contacts'
+import { AddContact } from '../components/AddContact';
 import Sidebar from '../components/Sidebar';
 
 
