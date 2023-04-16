@@ -1,6 +1,7 @@
 import React from 'react';
 import Signin from './views/Signin';
-import Signup from './views/Signup';
+import Signup from './views/SignupRedirect';
+import SignupAdmin from './views/Signup';
 import Dashboard from './views/Dashboard';
 import { Route, Routes } from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path='/signin' element={<Signin />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/signupAdmin' element={<SignupAdmin />} />
               <Route path='/Dashboard' element={
                   <ProtectedRoutes>
                     <Dashboard/>
@@ -24,15 +26,16 @@ function App() {
                   
                   }/>
               <Route path='/account/contact' element={
-              <ProtectedRoutes>
-                <ContactView />
-              </ProtectedRoutes>
-              
-              }/>
+                  <ProtectedRoutes>
+                    <ContactView />
+                  </ProtectedRoutes>
+                  
+                  }/>
               <Route path='/account/contacts' element={
-              <ProtectedRoutes>
-                <ContactsView />
-              </ProtectedRoutes>}/>
+                  <ProtectedRoutes>
+                    <ContactsView />
+                  </ProtectedRoutes>
+                  }/>
           </Routes>
         </AuthContextProvider>
     </div>

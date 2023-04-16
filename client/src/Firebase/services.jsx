@@ -68,7 +68,6 @@ class ContactsServices {
     const contactsNotes = collection(db,contacts+"/"+contactID+"/notes")
     return addDoc(contactsNotes,dataToAdd)
   }
-  
   deleteData=(id)=>{
       const deletedoc = doc(db,contacts,id)
       return deleteDoc(deletedoc)
@@ -77,6 +76,29 @@ class ContactsServices {
       const deletedoc = doc(db,contacts+"/"+contactID+"/notes",id)
       return deleteDoc(deletedoc)
     }
+    
+// ============================//
+//FOR WORKING WITH PROJECTS//
+// ============================//
+  createProject=(dataToAdd, contactID)=>{
+    const projectRef = collection(db, contacts+"/"+contactID+"/projects")
+    return addDoc(projectRef,dataToAdd)
+  }
+  getProjects=(contactID)=>{
+    const projectData = collection(db,contacts+"/"+contactID+"/projects")
+    return getDocs(projectData)
+  }
+  deleteProject=(id,contactID)=>{
+    const deletedoc = doc(db,contacts+"/"+contactID+"/project",id)
+    return deleteDoc(deletedoc)
+  }
+  getSingleProject = (id,contactID)=>{
+    const docRef = doc(db,contacts+"/"+contactID+"/project",id);
+    return getDoc(docRef);
+  }
+  
+// ============================//
+  
 
 }
 

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import ContactsServices from '../Firebase/services'
 import AddNote from '../components/AddNote'
 import Notes from '../components/Notes'
+import Project from '../components/Project'
+import AddProject from '../components/AddProject'
 import { useLocation, Link } from 'react-router-dom'
 import moment from 'moment';
 
@@ -11,7 +13,7 @@ export default function Contact() {
   const location = useLocation()
   const {from} = location.state
   const contactId = from
-  //State changes to alter ui
+//State changes to alter ui
   const [changeDataFirstName, setChangeDataFirstName] = useState('')
   const [changeDataLastName, setChangeDataLastName] = useState('')
   const [changeDataEmail, setChangeDataEmail] = useState('')
@@ -25,7 +27,7 @@ export default function Contact() {
   const [changeDataCustomBox01Content, setChangeDataCustomBox01Content] = useState('')
   const [changeDataCustomBox02Content, setChangeDataCustomBox02Content] = useState('')
   const [changeDataSocialMedia, setChangeDataSocialMedia] = useState('')
-  //data export  
+//data export  
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -42,7 +44,7 @@ export default function Contact() {
   const [loading, setLoading] = useState('Loading...')
   const lastUpdated = new Date();
 //General
-const [alert, setAlert] = useState('')
+  const [alert, setAlert] = useState('')
 
 
 useEffect(()=>{
@@ -412,6 +414,11 @@ return (
 
             </tbody>
           </table>
+        <div>
+          <AddProject id={contactId}></AddProject>
+          <h1>Place Projects Section here</h1>
+          <Project data={contactId}></Project>
+        </div>
         </div>
         <div className='grid_addNote'>
           <AddNote data={contactId}></AddNote>

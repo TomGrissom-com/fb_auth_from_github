@@ -5,8 +5,6 @@ import { UserAuth } from '../context/AuthContext';
 const ProtectedRoutes = ({ children }) => {
   const { user, emailVerified } = UserAuth();
   
-
-
   if(!user || emailVerified === false){
     return <Navigate to="/signin"/>;
   }else{

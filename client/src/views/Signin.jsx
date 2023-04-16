@@ -9,7 +9,6 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-<<<<<<< HEAD
   const { user, signIn, emailVerified, googleSignin, googleSigninRedir } = UserAuth();
   
   useEffect(()=>{
@@ -17,9 +16,6 @@ const Signin = () => {
       navigate('/Dashboard')
     }
   },[user])
-=======
-  const { user, signIn, emailVerified } = UserAuth();
->>>>>>> parent of 04c1e745 (Alpha Testing Ready)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,12 +28,6 @@ const Signin = () => {
       console.log(e.message)
     }
   }
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> parent of 04c1e745 (Alpha Testing Ready)
 
   return (
     <>
@@ -68,7 +58,7 @@ const Signin = () => {
             </button>
           </form>
           {!error ? '':<p style={{color: "red"}}>{"WE COULD NOT IDENTIFY YOUR ACCOUNT"}</p>}
-          {emailVerified == false ? <p style={{color: "red"}}>please check your email for email verification</p>:""}
+          {emailVerified == false ? <p style={{color: "red"}}>please check your email for verification email</p>:""}
         </div>
         <h3 style={{color: "red"}}><i>NOTE: This program is in Alpha Testing 
                                     <br/> and Currently in Development 
