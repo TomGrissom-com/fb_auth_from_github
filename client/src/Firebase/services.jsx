@@ -100,7 +100,18 @@ class ContactsServices {
     const docRef = doc(db,contacts+"/"+contactID+"/projects",id);
     return updateDoc(docRef, dataToUpdate);
   }
-  
+  getProjectNotes(contactID, projectId){
+    const contactNotes = collection(db,contacts+"/"+contactID+"/projects/"+projectId+"/notes")
+    return getDocs(contactNotes)
+  }
+  addProjectNote=(dataToAdd,contactID, projectId)=>{
+    const contactsNotes = collection(db,contacts+"/"+contactID+"/projects/"+projectId+"/notes")
+    return addDoc(contactsNotes,dataToAdd)
+  }
+  deleteProjectNote=(id,contactID, projectId)=>{
+    const deletedoc = doc(db,contacts+"/"+contactID+"/projects/"+projectId+"/notes",id)
+    return deleteDoc(deletedoc)
+  }
 // ============================//
   
 
