@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ContactsServices from '../Firebase/services'
 import AddNote from '../components/AddNote'
 import Notes from '../components/Notes'
-import Project from '../components/Project'
-import AddProject from '../components/AddProject'
+import Projects from '../components/Projects'
 import { useLocation, Link } from 'react-router-dom'
 import moment from 'moment';
 
@@ -415,9 +414,7 @@ return (
             </tbody>
           </table>
         <div>
-          <AddProject id={contactId}></AddProject>
-          <h1>Place Projects Section here</h1>
-          <Project data={contactId}></Project>
+          <Projects contactId={contactId} contactname={contactData.first_name+' '+contactData.last_name}></Projects>
         </div>
         </div>
         <div className='grid_addNote'>

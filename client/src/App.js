@@ -9,6 +9,7 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import { Main } from './views/Main';
 import ContactView from './views/ContactView'
 import ContactsView from './views/ContactsView';
+import ProjectView from './views/ProjectView';
 
 function App() {
   return (
@@ -34,6 +35,11 @@ function App() {
               <Route path='/account/contacts' element={
                   <ProtectedRoutes>
                     <ContactsView />
+                  </ProtectedRoutes>
+                  }/>
+              <Route path='/account/project' element={
+                  <ProtectedRoutes>
+                    <ProjectView />
                   </ProtectedRoutes>
                   }/>
           </Routes>

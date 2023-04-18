@@ -37,23 +37,6 @@ export default function Notes( contactId ) {
                     )
                 })}
         </div>
-        {/* <div>
-            <table>
-                <tbody>
-        {notes.map((doc, index) =>{
-                return(
-                        <tr key={doc.id}>
-                            <td key={new Date(doc.timestamp.seconds * 1000).toLocaleDateString("en-US")}>{moment(new Date(doc.timestamp.seconds * 1000)).format("MM/DD/yy  h:mm a")}</td>
-                            <td key={"note"+doc.id}>{doc.note}</td>
-                            <td key={"delete"+doc.id}>
-                            <button onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
-                            </td>
-                        </tr>
-                    )
-                })}
-                </tbody>
-            </table>
-        </div> */}
     </>
   )
 }

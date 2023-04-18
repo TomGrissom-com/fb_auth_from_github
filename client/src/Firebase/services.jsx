@@ -89,12 +89,16 @@ class ContactsServices {
     return getDocs(projectData)
   }
   deleteProject=(id,contactID)=>{
-    const deletedoc = doc(db,contacts+"/"+contactID+"/project",id)
+    const deletedoc = doc(db,contacts+"/"+contactID+"/projects",id)
     return deleteDoc(deletedoc)
   }
   getSingleProject = (id,contactID)=>{
-    const docRef = doc(db,contacts+"/"+contactID+"/project",id);
+    const docRef = doc(db,contacts+"/"+contactID+"/projects",id);
     return getDoc(docRef);
+  }
+  updateSingleProject = (contactID,id, dataToUpdate) => {
+    const docRef = doc(db,contacts+"/"+contactID+"/projects",id);
+    return updateDoc(docRef, dataToUpdate);
   }
   
 // ============================//
