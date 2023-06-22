@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import {Header} from '../components/Header'
+import ResetPassword from '../components/ResetPassword'
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const Signin = () => {
       navigate('/Dashboard')
     }
   },[user])
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('')
@@ -57,11 +58,16 @@ const Signin = () => {
               Sign In
             </button>
           </form>
-          {!error ? '':<p style={{color: "red"}}>{"WE COULD NOT IDENTIFY YOUR ACCOUNT"}</p>}
-          {emailVerified == false ? <p style={{color: "red"}}>please check your email for verification email</p>:""}
+          <div style={{marginTop:'25px'}}>
+            {!error ? '':<p style={{color: "red"}}>{"WE COULD NOT IDENTIFY YOUR ACCOUNT"}</p>}
+            {emailVerified == false ? <p style={{color: "red"}}>please check your email for verification email</p>:""}
+          </div>
+        
         </div>
+        <ResetPassword email={email}/>
         <h3 style={{color: "red"}}><i>NOTE: This program is in Alpha Testing 
-                                    <br/> and Currently in Development 
+                                    <br/> and Currently in Development.
+                                    <br/> Some things may not function as expected.
                                     <br/> please provide feedback and suggestions to <a href='Mailto:info@bettertechsol.com' target='blank'>info@bettertechsol.com
                                     </a></i></h3>
       </div>

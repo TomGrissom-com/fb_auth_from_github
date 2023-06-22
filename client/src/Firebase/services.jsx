@@ -1,4 +1,6 @@
 import { db } from './firebase'
+import {sendPasswordResetEmail} from "firebase/auth"
+import { auth } from '../Firebase/firebase';
 import {
     collection,
     getDocs,
@@ -35,6 +37,12 @@ class ContactsServices {
     return updateDoc(dataRef, data)
   }
 
+  resetPassword = (email) => {
+    return new Promise((resolve, reject) => {
+      sendPasswordResetEmail(auth, email)
+        .then(() => resolve("EMAIL SUCCESSFULLY SENT"))
+        .catch((err) => reject(err));
+    });}
 
 //DATA CONTROL FROM FIRST INIT
   getAllData = () => {

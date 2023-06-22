@@ -7,7 +7,7 @@ export const Main = () => {
     <>
         <Header data={"Main Screen"}></Header>
         <div className='container'>
-          <div className='child'>
+          <div className='child' style={{display:'flex', alignItems:'center' }}>
               <img id='btBanner' src={bttopper}/>
           </div>
         </div>
