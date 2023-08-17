@@ -31,7 +31,7 @@ export default function NotesProject( props ) {
                             <div className='notesTimestamp' key={new Date(doc.timestamp.seconds * 1000).toLocaleDateString("en-US")}>{moment(new Date(doc.timestamp.seconds * 1000)).format("MM/DD/yy  h:mm a")}</div>
                             <div className='notesNote' key={"note"+doc.id}>{doc.note}</div>
                             <div className='notesDeleteButton' key={"delete"+doc.id}>
-                            <button onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
+                                <button onClick={(e)=>deleteHandler(doc.id)}>DELETE</button>  
                             </div>
                         </div>
                     )

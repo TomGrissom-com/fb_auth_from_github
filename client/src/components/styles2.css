@@ -303,6 +303,10 @@ nav a {
 .grid_contacts{
   grid-area: 1 / 2 / -1 / -1;
 }
+.todoList{
+  grid-area: 2/1/2/2;
+  justify-self: start;
+}
 /*GRID CONTROL FOR CONTACT VIEW*/
 .grid_contact_table{
   grid-area: 1/1/-1/1;
@@ -573,6 +577,11 @@ nav a {
   }
   .grid_contacts{
     grid-area: 2 / 1 / 2 / -1;
+  }
+  .todoList{
+    grid-area: 2 / 2 / 2 / -1;
+    justify-self: center;
+    margin-left: -25px;
   }
   /*GRID CONTROL FOR CONTACT VIEW*/
   .grid_contact_table{

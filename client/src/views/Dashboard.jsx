@@ -3,6 +3,7 @@ import { UserAuth } from '../context/AuthContext';
 import {Header} from '../components/Header'
 import Sidebar from '../components/Sidebar';
 import UserInfo from '../components/UserInfo';
+import Todolist from '../components/Todolist';
 
 const Dashboard = () => {
   const { user, logout } = UserAuth();
@@ -16,6 +17,9 @@ const Dashboard = () => {
           <div className='grid_userData card_plain p8'>
             <h3>Account Information</h3>
               <UserInfo props={user}></UserInfo>
+          </div>
+          <div className='todoList'>
+            <Todolist></Todolist>
           </div>
       </div>
     </div>

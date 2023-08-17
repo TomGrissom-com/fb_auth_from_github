@@ -30,3 +30,6 @@ client/node_modules/.cache/.eslintcache
 *.pack
 *.pack
 *.cmd
+*.old
+*.pack
+*.pack

@@ -123,6 +123,30 @@ class ContactsServices {
 // ============================//
   
 
+// ============================//
+//FOR WORKING WITH TODO List//
+// ============================//
+
+addTodo=(datatoadd)=>{
+  const addTodo = collection(db,"todoList")
+  return addDoc(addTodo, datatoadd)
+}
+
+getTodoList=()=>{
+  const list = collection(db,"todoList")
+  return getDocs(list)
+}
+
+deleteTodo=(id)=>{
+  const deleteTodoDoc = doc(db,"todoList",id)
+  return deleteDoc(deleteTodoDoc)
+}
+
+deleteNote=(id,contactID)=>{
+  const deletedoc = doc(db,contacts+"/"+contactID+"/notes",id)
+  return deleteDoc(deletedoc)
+}
+
 }
 
 export default new ContactsServices()
