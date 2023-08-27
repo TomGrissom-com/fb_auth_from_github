@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ContactsServices from '../Firebase/services';
+import trash from '../images/trash.png';
+import { Link } from 'react-router-dom';
 
 
 export default function Todolist() {
@@ -8,7 +10,7 @@ export default function Todolist() {
 
     useEffect(()=>{
         getTodoList();
-    })
+    },[])
 
 const getTodoList = async()=>{
     const data = await ContactsServices.getTodoList();
@@ -25,11 +27,11 @@ const getTodoList = async()=>{
         setTodo('')
     }
 
-    const handleTodoDelete = async (id)=>{
-        await ContactsServices.deleteTodo(id)
-        getTodoList();
-    }
-
+    const handleTodoDelete = async (id) => {
+        await ContactsServices.deleteTodo(id);
+        setTodoList(prevTodoList => prevTodoList.filter(todo => todo.id !== id));
+      };
+      
   return (
     <div className='card_plain p16'>
         <input 
@@ -41,9 +43,15 @@ const getTodoList = async()=>{
         <input type="submit" value="Add Todo" onClick={handleSetTodo}></input>
         {todoList.map((doc, index)=>{
                 return(
-                    <div key={doc.id}>
-                        <p>{doc.todo}</p>
-                        <button onClick={(e)=>handleTodoDelete(doc.id)}>DELETE</button> 
+                    <div className="todoContainer" key={doc.id}>
+                        <div className='todoGrid-item'>
+                            <Link className='table_button p5' onClick={(e)=>handleTodoDelete(doc.id)}>
+                                <img alt='Trash Can Press to Delete' className='trashCan' src={trash}></img>
+                            </Link> 
+                        </div> 
+                        <div className='todoGrid-item'>
+                            <p>{doc.todo}</p>
+                        </div>
                     </div>
                     )
             })}

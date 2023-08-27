@@ -307,6 +307,16 @@ nav a {
   grid-area: 2/1/2/2;
   justify-self: start;
 }
+.todoContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.todoGrid-item {
+  flex: 0 1 auto; /* flex-grow, flex-shrink, flex-basis */
+  border: 1px solid #ccc;
+}
+
 /*GRID CONTROL FOR CONTACT VIEW*/
 .grid_contact_table{
   grid-area: 1/1/-1/1;
